@@ -5,22 +5,26 @@ import { Route, Switch, Link } from 'react-router-dom';
 
 const App: React.FC = () => {
 	return (
-		<Switch>
-			{/* <nav className="navbar navbar-expand-lg navbar-light bg-light">
-				<li className="nav-item">
-					<Link className="nav-link" to="/">
-						Home
-					</Link>
-				</li>
-				<li className="nav-item">
-					<Link className="nav-link" to="/movies">
-						Movies
-					</Link>
-				</li>
-			</nav> */}
-			<Route exact path="/" render={() => <MovieHome />} />
-			<Route exact path="/movies" render={() => <MoviesPage />} />
-		</Switch>
+		<div>
+			<nav className="navbar navbar-expand-lg navbar-dark bg-dark">
+				<ul className="navbar-nav mr-auto">
+					<li className="nav-item">
+						<Link className="nav-link" to="/">
+							Movies Home
+						</Link>
+					</li>
+					<li className="nav-item">
+						<Link className="nav-link" to="/movies">
+							Movies Page
+						</Link>
+					</li>
+				</ul>
+			</nav>
+			<Switch>
+				<Route path="/movies" component={MoviesPage} />
+				<Route path="/" component={MovieHome} />
+			</Switch>
+		</div>
 	);
 };
 
