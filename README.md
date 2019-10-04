@@ -1,4 +1,4 @@
-1.FIRST STERP
+1.FIRST STEP
 -----------------------------------------------------------------------------------------------------------------------------
 OMDB API
 Movies application page
@@ -28,3 +28,25 @@ Advanced:
 Implement routing in your application with the following routes:
 MoviesPage
 HomePage –component with header – HOME PAGE
+
+
+2.Second Step
+------------------------------------------------------------------------------------------------------------------------------------
+1. resume with the movies application
+
+2. make sure you done with all the last homework so you can implement the new one
+
+3. create a movie page - clicking on a spesific movie will navigate  to the new page with  all the information on the selected movie - like the country page in the class
+
+
+4. implement redux  state management in your application 
+
+5.   feedbackPage -  create a new route for writing feedback on the movie
+
+6. the new route will contain a  text area and button for saving the comment on the movie
+
+7. the comments will be save in the redux store inside the comments array
+
+8. add a route that will present all the comments
+
+9. see in the  attached image the option for comments strcuture
