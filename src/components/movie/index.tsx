@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 class Movie extends React.Component<any, any> {
 	render() {
@@ -15,6 +16,7 @@ class Movie extends React.Component<any, any> {
 						<p className="card-text">Year - {Year}</p>
 						<p className="card-text">Type - {Type}</p>
 						<p className="card-text">imdbID - {imdbID}</p>
+						<Link to={`/movie/${imdbID}`}>Movie Detail</Link>
 					</div>
 				</div>
 			</div>

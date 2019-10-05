@@ -2,6 +2,7 @@ import React from 'react';
 import MoviesPage from './components/movies-page';
 import MovieHome from './components/movie-home';
 import MovieNavbar from './components/movie-navbar';
+import MovieDetail from './components/movie-detail';
 import { Route, Switch } from 'react-router-dom';
 
 const App: React.FC = () => {
@@ -9,8 +10,9 @@ const App: React.FC = () => {
 		<div>
 			<MovieNavbar />
 			<Switch>
-				<Route path="/movies" component={MoviesPage} />
-				<Route path="/" component={MovieHome} />
+				<Route exact path="/movies" component={MoviesPage} />
+				<Route exact path="/" component={MovieHome} />
+				<Route exact path="/movie/:imdbID" component={MovieDetail} />
 			</Switch>
 		</div>
 	);

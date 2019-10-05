@@ -19,7 +19,7 @@ class MoviesPage extends React.Component<any, any> {
 			.then((result: any) => {
 				console.log(result.data.Search);
 				if (result.data.Search.length > 0)
-					this.setState({ movies: [ ...result.data.Search ], isLoading: false });
+					this.setState({ movies: [ ...this.state.movies, ...result.data.Search ], isLoading: false });
 			})
 			.catch((e) => console.log(e));
 	};
