@@ -16,6 +16,16 @@ class MovieNavbar extends React.Component<any, any> {
 							Movies Page
 						</Link>
 					</li>
+					<li className="nav-item">
+						<Link className="nav-link" to="/comments">
+							Movie Comments
+						</Link>
+					</li>
+					<li className="nav-item">
+						<Link className="nav-link" to="/feedback">
+							Movies Feedback
+						</Link>
+					</li>
 				</ul>
 			</nav>
 		);
