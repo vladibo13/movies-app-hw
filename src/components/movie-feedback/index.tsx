@@ -25,6 +25,7 @@ class MovieFeedback extends React.Component<any, any> {
 			<div className="container">
 				<div className="row">
 					<div className="col-6 offset-3 my-5">
+						<h2 className="display-4 text-center my-5">Moovies Feedback</h2>
 						<div className="form-group">
 							<textarea
 								value={this.state.comment}

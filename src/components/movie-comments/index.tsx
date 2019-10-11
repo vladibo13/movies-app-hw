@@ -5,7 +5,7 @@ class MovieComments extends React.Component<any, any> {
 	render() {
 		const { comments } = this.props;
 		console.log(comments);
-		if (comments.length === 0) return <h1>No Comments</h1>;
+		if (comments.length === 0) return <h1 className="text-center mt-3 display-4">No Comments</h1>;
 		return (
 			<div className="container">
 				<div className="row">
