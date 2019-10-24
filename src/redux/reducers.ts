@@ -1,8 +1,10 @@
 import Actions from './actions.config';
+import moviesFavorite from '../components/movies-favorite';
 
 const initialState = {
 	comments: [],
-	favorites: []
+	favorites: [],
+	movies: []
 };
 
 export default function root(state = initialState, action: any) {
@@ -23,6 +25,15 @@ export default function root(state = initialState, action: any) {
 			return {
 				...state,
 				favorites: [ ...favorites, movie ]
+			};
+		}
+
+		case Actions.GET_MOVIES_SUCCESS: {
+			const { movies: data } = action.payload;
+			const { movies } = state;
+			return {
+				...state,
+				movies: [ ...movies, data ]
 			};
 		}
 

@@ -50,3 +50,9 @@ HomePage –component with header – HOME PAGE
 8. add a route that will present all the comments
 
 9. see in the  attached image the option for comments strcuture
+--------------------------------------------------------------------------------------------------------------------------------------
+3.Third Step
+
+1.Add redux and Router package
+2.A request that will fetch the relevant movies, on search!
+3.Throw async actions with the redux middleware
