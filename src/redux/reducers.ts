@@ -4,7 +4,8 @@ import moviesFavorite from '../components/movies-favorite';
 const initialState = {
 	comments: [],
 	favorites: [],
-	movies: []
+	movies: [],
+	isLoading: false
 };
 
 export default function root(state = initialState, action: any) {
@@ -30,10 +31,18 @@ export default function root(state = initialState, action: any) {
 
 		case Actions.GET_MOVIES_SUCCESS: {
 			const { movies: data } = action.payload;
-			const { movies } = state;
+
 			return {
 				...state,
-				movies: [ ...movies, data ]
+				isLoading: false,
+				movies: [ ...data ]
+			};
+		}
+
+		case Actions.GET_MOVIES_STARTED: {
+			return {
+				...state,
+				isLoading: true
 			};
 		}
 
