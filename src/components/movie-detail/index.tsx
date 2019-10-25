@@ -1,20 +1,23 @@
 import React from 'react';
+import { connect } from 'react-redux';
+import { getSingleMovie } from '../../redux/actions';
 import axios from 'axios';
 const APIKEY = 'e3f08a46';
 class MovieDetail extends React.Component<any, any> {
-	constructor(props: any) {
-		super(props);
-		console.log(props.match.params.imdbID);
-		this.state = { currentMovie: null };
-	}
+	// constructor(props: any) {
+	// 	super(props);
+	// 	console.log(props.match.params.imdbID);
+	// 	this.state = { currentMovie: null };
+	// }
 
 	componentDidMount() {
 		const { imdbID } = this.props.match.params;
-		const url = `http://www.omdbapi.com/?apikey=${APIKEY}&i=${imdbID}`;
-		axios.get(url).then((result) => this.setState({ currentMovie: result.data })).catch((e) => console.log(e));
+		this.props.onSingleMovie(imdbID);
+		// const url = `http://www.omdbapi.com/?apikey=${APIKEY}&i=${imdbID}`;
+		// axios.get(url).then((result) => this.setState({ currentMovie: result.data })).catch((e) => console.log(e));
 	}
 	render() {
-		const { currentMovie } = this.state;
+		const { currentMovie } = this.props;
 		if (!currentMovie) return <div>Loading...</div>;
 		return (
 			<div className="container my-5">
@@ -47,7 +50,22 @@ class MovieDetail extends React.Component<any, any> {
 	}
 }
 
-export default MovieDetail;
+const mapDispatchToProps = (dispatch: any) => {
+	return {
+		onSingleMovie: (imdbID: any) => {
+			dispatch(getSingleMovie(imdbID));
+		}
+	};
+};
+
+function mapStateToProps(state: any) {
+	console.log('state from redux');
+	return {
+		...state
+	};
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(MovieDetail);
 
 // Actors: "Robert Downey Jr., Chris Hemsworth, Mark Ruffalo, Chris Evans"
 // Awards: "N/A"

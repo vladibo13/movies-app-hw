@@ -5,7 +5,8 @@ const initialState = {
 	comments: [],
 	favorites: [],
 	movies: [],
-	isLoading: false
+	isLoading: false,
+	currentMovie: null
 };
 
 export default function root(state = initialState, action: any) {
@@ -43,6 +44,14 @@ export default function root(state = initialState, action: any) {
 			return {
 				...state,
 				isLoading: true
+			};
+		}
+
+		case Actions.GET_SINGLE_MOVIE: {
+			const { movie } = action.payload;
+			return {
+				...state,
+				currentMovie: movie
 			};
 		}
 
