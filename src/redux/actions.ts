@@ -5,7 +5,7 @@ const APIKEY = 'e3f08a46';
 
 export const getSingleMovie = (imdbID: string) => {
 	return (dispatch: any) => {
-		const url = `http://www.omdbapi.com/?apikey=${APIKEY}&i=${imdbID}`;
+		const url = `https://www.omdbapi.com/?apikey=${APIKEY}&i=${imdbID}`;
 
 		axios.get(url).then((result: any) => {
 			dispatch(getSingleMovieAction(result.data));
@@ -16,7 +16,7 @@ export const getSingleMovie = (imdbID: string) => {
 export const getMoviesAction = (searchTerm: any) => {
 	console.log('dispatching...');
 	return (dispatch: any) => {
-		const url = `http://www.omdbapi.com/?apikey=${APIKEY}&s=${searchTerm}`;
+		const url = `https://www.omdbapi.com/?apikey=${APIKEY}&s=${searchTerm}`;
 
 		dispatch(getMovieStartedAction());
 		axios
