@@ -31,8 +31,8 @@ class MoviesPage extends React.Component<any, any> {
 		console.log(this.props);
 		const { movies, isLoading } = this.props;
 		return (
-			<div className="container">
-				<h2 className="display-4 lead text-center my-5">Movie App</h2>
+			<div className="container-fluid">
+				<h2 className="display-4 text-center mt-5 mb-2">Movie Search App</h2>
 				<MovieSearch movieSearch={this.movieSearch} />
 				<MoviesList isLoading={isLoading} movies={movies} />
 			</div>

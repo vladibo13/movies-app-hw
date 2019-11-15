@@ -54,6 +54,22 @@ export default function root(state = initialState, action: any) {
 				currentMovie: movie
 			};
 		}
+		case Actions.GET_SINGLE_MOVIE: {
+			const { movie } = action.payload;
+			return {
+				...state,
+				currentMovie: movie
+			};
+		}
+		case Actions.REMOVE_MOVIE_FAVORITE: {
+			const { movie } = action.payload;
+			const { favorites } = state;
+			const filtredMovies = favorites.filter((m: any) => m.imdbID !== movie.imdbID);
+			return {
+				...state,
+				favorites: [ ...filtredMovies ]
+			};
+		}
 
 		default:
 			return state;

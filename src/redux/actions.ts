@@ -52,3 +52,8 @@ export const getMoviesSuccessAction = (movies: any) => ({
 export const getMovieStartedAction = () => ({
 	type: ACTIONS.GET_MOVIES_STARTED
 });
+
+export const removeMovieFromFavorite = (movie: any) => ({
+	type: ACTIONS.REMOVE_MOVIE_FAVORITE,
+	payload: { movie }
+});

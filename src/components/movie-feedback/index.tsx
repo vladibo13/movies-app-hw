@@ -27,11 +27,15 @@ class MovieFeedback extends React.Component<any, any> {
 					<div className="col-6 offset-3 my-5">
 						<h2 className="display-4 text-center my-5">Moovies Feedback</h2>
 						<div className="form-group">
+							<input placeholder="enter movie title" type="text" className="form-control" />
+						</div>
+						<div className="form-group">
 							<textarea
 								value={this.state.comment}
 								className="form-control"
 								style={{ height: 200 }}
 								onChange={this.handleMovieCommentChange}
+								placeholder="enter movie comment"
 							/>
 						</div>
 						<button

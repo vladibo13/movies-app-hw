@@ -1,10 +1,14 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 class MovieHome extends React.Component<any, any> {
 	render() {
 		return (
-			<div>
-				<h1 className="text-center display-2 my-5 display-4">Hello From Movie Home After Update</h1>
+			<div className="movie-container text-center ">
+				<h1 className="text-white pt-5 display-4">Welcome To Movie Search App</h1>
+				<Link className="mt-3 d-block" to="/movies">
+					Go To Movie Search
+				</Link>
 			</div>
 		);
 	}
