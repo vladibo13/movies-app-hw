@@ -67,6 +67,7 @@ function mapStateToProps(state: any) {
 
 export default connect(mapStateToProps, mapDispatchToProps)(MovieDetail);
 
+// --------------- API Respond Example ------------------
 // Actors: "Robert Downey Jr., Chris Hemsworth, Mark Ruffalo, Chris Evans"
 // Awards: "N/A"
 // BoxOffice: "$664,987,816"

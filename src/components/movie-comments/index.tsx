@@ -9,13 +9,16 @@ class MovieComments extends React.Component<any, any> {
 		return (
 			<div className="container">
 				<div className="row">
-					<div className="col-6 offset-3 my-5">
-						{comments.map((comment: any, index: any) => (
-							<p className="shadow p-5" key={index}>
-								{comment.newComment}
-							</p>
-						))}
-					</div>
+					{comments.map((c: any, index: number) => (
+						<div className="col-6  my-2">
+							<ul className="list-group p-2" key={index}>
+								<li className="list-group-item">
+									<h5>{c.title}</h5>
+									<p>{c.comment}</p>
+								</li>
+							</ul>
+						</div>
+					))}
 				</div>
 			</div>
 		);
@@ -24,11 +27,6 @@ class MovieComments extends React.Component<any, any> {
 
 function mapDispatchToProps(dispatch: any) {
 	return {};
-	// return {
-	// 	onSaveMovieComment: (user: any) => {
-	// 		dispatch(saveMovieComment(user));
-	// 	}
-	// };
 }
 
 const mapStateToProps = (state: any) => {

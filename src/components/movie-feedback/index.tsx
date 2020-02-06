@@ -7,18 +7,20 @@ class MovieFeedback extends React.Component<any, any> {
 		super(props);
 
 		this.state = {
+			title: '',
 			comment: ''
 		};
 	}
 	handleMovieCommentChange = (e: any) => {
-		console.log(this.state.comment);
-		this.setState({ comment: e.target.value });
+		console.log('state = ', this.state);
+
+		this.setState({ [e.target.name]: e.target.value });
 	};
 
 	handleMovieCommentSave = () => {
 		const { onSaveMovieComment } = this.props;
-		onSaveMovieComment(this.state.comment);
-		this.setState({ comment: '' });
+		onSaveMovieComment(this.state);
+		this.setState({ comment: '', title: '' });
 	};
 	render() {
 		return (
@@ -27,15 +29,21 @@ class MovieFeedback extends React.Component<any, any> {
 					<div className="col-6 offset-3 my-5">
 						<h2 className="display-4 text-center my-5">Moovies Feedback</h2>
 						<div className="form-group">
-							<input placeholder="enter movie title" type="text" className="form-control" />
+							<input
+								onChange={this.handleMovieCommentChange}
+								name="title"
+								placeholder="enter movie title"
+								type="text"
+								className="form-control"
+							/>
 						</div>
 						<div className="form-group">
 							<textarea
-								value={this.state.comment}
 								className="form-control"
 								style={{ height: 200 }}
 								onChange={this.handleMovieCommentChange}
 								placeholder="enter movie comment"
+								name="comment"
 							/>
 						</div>
 						<button
@@ -52,18 +60,16 @@ class MovieFeedback extends React.Component<any, any> {
 	}
 }
 
-function mapDispatchToProps(dispatch: any) {
-	// return {};
+function mapDispatchToProps(dispatch: Function) {
 	return {
-		onSaveMovieComment: (movie: any) => {
+		onSaveMovieComment: (movie: object) => {
 			console.log('movie = ' + movie);
 			dispatch(saveMovieComment(movie));
 		}
 	};
 }
 
-function mapStateToProps(state: any) {
-	console.log('state from redux');
+function mapStateToProps(state: object) {
 	return {
 		...state
 	};

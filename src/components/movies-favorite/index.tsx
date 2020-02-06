@@ -4,8 +4,7 @@ import { connect } from 'react-redux';
 class MoviesFavorite extends React.Component<any, any> {
 	render() {
 		const { favorites } = this.props;
-		// Title, Poster, Year, imdbID, Type
-		if (favorites.length === 0) return <h1 className="text-center mt-3 display-4">No Favorites</h1>;
+		if (!favorites.length) return <h1 className="text-center mt-3 display-4">No Favorites</h1>;
 		return (
 			<div className="container">
 				<div className="row">
@@ -28,17 +27,11 @@ class MoviesFavorite extends React.Component<any, any> {
 	}
 }
 
-function mapDispatchToProps(dispatch: any) {
+function mapDispatchToProps(dispatch: Function) {
 	return {};
-	// return {
-	// 	onSaveMovieComment: (user: any) => {
-	// 		dispatch(saveMovieComment(user));
-	// 	}
-	// };
 }
 
-const mapStateToProps = (state: any) => {
-	console.log('state from redux');
+const mapStateToProps = (state: object) => {
 	return {
 		...state
 	};

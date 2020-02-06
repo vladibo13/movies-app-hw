@@ -26,7 +26,7 @@ class Movie extends React.Component<any, any> {
 		const { Title, Poster, Year, imdbID, Type } = this.props;
 		console.log(Title);
 		return (
-			<div className="col-sm-6 col-md-4 col-lg-2 my-3 ">
+			<div className="col-sm-6 col-md-4 col-lg-3 my-3 ">
 				<div className="card shadow rounded">
 					<img src={Poster} alt={Title + Type} className="card-img-top" />
 					<div className="card-body">
@@ -55,20 +55,20 @@ class Movie extends React.Component<any, any> {
 	}
 }
 
-const mapDispatchToProps = (dispatch: any) => {
+const mapDispatchToProps = (dispatch: Function) => {
 	return {
 		reduxAction: {
-			addMovieToFavorite: (movie: any) => {
+			addMovieToFavorite: (movie: object) => {
 				dispatch(saveMovieToFavorite(movie));
 			},
-			removeMovieFromFavorite: (movie: any) => {
+			removeMovieFromFavorite: (movie: object) => {
 				dispatch(removeMovieFromFavorite(movie));
 			}
 		}
 	};
 };
 
-const mapStateToProps = (state: any) => {
+const mapStateToProps = (state: object) => {
 	return state;
 };
 

@@ -11,23 +11,18 @@ class MovieNavbar extends React.Component<any, any> {
 				<div className="collapse navbar-collapse">
 					<ul className="navbar-nav mr-auto">
 						<li className="nav-item">
-							<Link className="nav-link" to="/">
-								Movies Home
-							</Link>
-						</li>
-						<li className="nav-item">
 							<Link className="nav-link" to="/movies">
-								Movies Page
+								Search
 							</Link>
 						</li>
 						<li className="nav-item">
 							<Link className="nav-link" to="/comments">
-								Movie Comments
+								Comments
 							</Link>
 						</li>
 						<li className="nav-item">
 							<Link className="nav-link" to="/feedback">
-								Movies Feedback
+								Feedback
 							</Link>
 						</li>
 						<li className="nav-item">

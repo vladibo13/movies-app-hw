@@ -5,10 +5,10 @@ class MovieSearch extends React.Component<any, any> {
 		super(props);
 		this.state = { searchTerm: '' };
 	}
-	handleFormInput = (e: any) => {
+	handleFormInput = (e: React.ChangeEvent<HTMLInputElement>): void => {
 		this.setState({ [e.target.name]: e.target.value });
 	};
-	handleOnClick = (e: any) => {
+	handleOnClick = (e: React.MouseEvent<HTMLElement>): void => {
 		e.preventDefault();
 		const { movieSearch } = this.props;
 		const { searchTerm } = this.state;
@@ -17,8 +17,8 @@ class MovieSearch extends React.Component<any, any> {
 	};
 	render() {
 		return (
-			<form>
-				<div className="input-group w-75 mx-auto">
+			<form className="mb-3">
+				<div className="input-group w-50 mx-auto">
 					<input
 						value={this.state.searchTerm}
 						type="text"

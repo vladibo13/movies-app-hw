@@ -5,34 +5,14 @@ import { connect } from 'react-redux';
 import { getMoviesAction } from '../../redux/actions';
 
 class MoviesPage extends React.Component<any, any> {
-	// constructor(props: any) {
-	// 	super(props);
-	// 	this.state = {
-	// 		movies: [],
-	// 		isLoading: false
-	// 	};
-	// }
-
-	movieSearch = (searchTerm: any) => {
-		// this.setState({ isLoading: true });
-		// const url = `http://www.omdbapi.com/?apikey=${APIKEY}&s=${searchTerm}`;
-		// axios
-		// 	.get(url)
-		// 	.then((result: any) => {
-		// 		console.log(result.data.Search);
-		// 		if (result.data.Search.length > 0)
-		// 			this.setState({ movies: [ ...this.state.movies, ...result.data.Search ], isLoading: false });
-		// 	})
-		// 	.catch((e) => console.log(e));
-		console.log(searchTerm);
+	movieSearch = (searchTerm: string) => {
 		this.props.onSearchMovies(searchTerm);
 	};
 	render() {
-		console.log(this.props);
 		const { movies, isLoading } = this.props;
 		return (
 			<div className="container-fluid">
-				<h2 className="display-4 text-center mt-5 mb-2">Movie Search App</h2>
+				<h2 className=" text-center mt-5 mb-3">Movie Search App</h2>
 				<MovieSearch movieSearch={this.movieSearch} />
 				<MoviesList isLoading={isLoading} movies={movies} />
 			</div>
@@ -40,7 +20,7 @@ class MoviesPage extends React.Component<any, any> {
 	}
 }
 
-const mapDispatchToProps = (dispatch: any) => {
+const mapDispatchToProps = (dispatch: Function) => {
 	return {
 		onSearchMovies: (movies: any) => {
 			dispatch(getMoviesAction(movies));
@@ -48,13 +28,10 @@ const mapDispatchToProps = (dispatch: any) => {
 	};
 };
 
-function mapStateToProps(state: any) {
-	console.log('state from redux');
+function mapStateToProps(state: object) {
 	return {
 		...state
 	};
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(MoviesPage);
-
-// export default MoviesPage;

@@ -12,12 +12,12 @@ const initialState = {
 export default function root(state = initialState, action: any) {
 	switch (action.type) {
 		case Actions.ADD_COMMENT: {
-			console.log(state);
-
-			const newComment = action.payload.comment;
+			const { title, comment } = action.payload.commentObj;
+			console.log('comment = ', comment);
+			console.log('title = ', title);
 			return {
 				...state,
-				comments: [ ...state.comments, { newComment } ]
+				comments: [ ...state.comments, { title, comment } ]
 			};
 		}
 
